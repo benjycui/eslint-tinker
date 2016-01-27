@@ -1,0 +1,36 @@
+{
+  "name": "eslint-tinker",
+  "version": "0.1.0",
+  "description": "To fix ESLint Errors in Markdown(or more in the future) automatically.",
+  "bin": {
+    "eslint-tinker": "./bin/eslint-tinker"
+  },
+  "scripts": {
+    "lint": "eslint ./bin/eslint-tinker ./lib/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benjycui/eslint-tinker.git"
+  },
+  "keywords": [
+    "eslint",
+    "fix",
+    "markdown",
+    "automatically"
+  ],
+  "author": "Benjy Cui <benjytrys@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/benjycui/eslint-tinker/issues"
+  },
+  "homepage": "https://github.com/benjycui/eslint-tinker#readme",
+  "dependencies": {
+    "commander": "~2.9.0",
+    "eslint": "~1.10.3",
+    "remark": "~3.2.2",
+    "shelljs": "~0.5.3"
+  },
+  "devDependencies": {
+    "eslint-config-egg": "~1.0.3"
+  }
+}

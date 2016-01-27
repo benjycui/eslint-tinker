@@ -1,0 +1,27 @@
+#! /usr/bin/env node
+
+'use strict';
+
+const path = require('path');
+const program = require('commander');
+const version = require('../package').version;
+const tinker = require('../lib/tinker');
+
+program
+  .version(version)
+  .usage('<file> [otherFiles...]')
+  .action(function() {
+    const eslintrc = process.cwd() + path.sep + '.eslintrc';
+
+    // TODO: use commander instead
+    const files = process.argv.slice(2).map(function(file) {
+      return path.resolve(file);
+    });
+
+    files.forEach(function(file) {
+      tinker(file, eslintrc);
+    });
+
+    console.log('ESLint tinker done its works! :-)');
+  })
+  .parse(process.argv);
