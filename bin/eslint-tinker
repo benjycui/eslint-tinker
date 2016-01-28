@@ -4,6 +4,7 @@
 
 const path = require('path');
 const program = require('commander');
+const CLIEngine = require('eslint').CLIEngine;
 const version = require('../package').version;
 const tinker = require('../lib/tinker');
 
@@ -12,6 +13,13 @@ program
   .usage('<file> [otherFiles...]')
   .action(function() {
     const eslintrc = process.cwd() + path.sep + '.eslintrc';
+    const eslint = new CLIEngine({
+      configFile: eslintrc,
+      fix: true,
+      rules: {
+        'eol-last': 0,
+      },
+    });
 
     // TODO: use commander instead
     const files = process.argv.slice(2).map(function(file) {
@@ -19,9 +27,7 @@ program
     });
 
     files.forEach(function(file) {
-      tinker(file, eslintrc);
+      tinker(file, eslint);
     });
-
-    console.log('ESLint tinker done its works! :-)');
   })
   .parse(process.argv);
