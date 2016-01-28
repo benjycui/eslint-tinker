@@ -2,11 +2,28 @@
 
 To fix ESLint Errors in Markdown(or more in the future) automatically.
 
-## Usage
+## Installation
 
 ```bash
-npm install -g eslint-tinker
-eslint-tinker path/to/file.md
+npm install --save eslint-tinker
+```
+
+## Usage
+
+Edit `package.json`:
+
+```json
+{
+  "scripts": {
+    "eslint-tinker": "eslint-tinker path/to/file.md"
+  }
+}
+```
+
+Then:
+
+```bash
+npm run eslint-tinker
 ```
 
 ## Liscense
