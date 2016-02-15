@@ -1,6 +1,6 @@
 {
   "name": "eslint-tinker",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "To fix ESLint Errors in Markdown(or more in the future) automatically.",
   "bin": {
     "eslint-tinker": "./bin/eslint-tinker"
