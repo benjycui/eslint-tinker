@@ -3,16 +3,30 @@
 'use strict';
 
 const path = require('path');
+const fs = require('fs');
 const program = require('commander');
 const CLIEngine = require('eslint').CLIEngine;
 const version = require('../package').version;
 const tinker = require('../lib/tinker');
 
+const eslintConfigFiles = [
+  '.eslintrc.js',
+  '.eslintrc.yaml',
+  '.eslintrc.yml',
+  '.eslintrc.json',
+  '.eslintrc',
+];
+
 program
   .version(version)
   .usage('<file> [otherFiles...]')
   .action(function() {
-    const eslintrc = process.cwd() + path.sep + '.eslintrc';
+    const eslintrc = eslintConfigFiles.map(function(fileName) {
+      return process.cwd() + path.sep + fileName;
+    }).find(function(path) {
+      return fs.existsSync(path);
+    });
+
     const eslint = new CLIEngine({
       configFile: eslintrc,
       fix: true,
