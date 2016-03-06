@@ -30,6 +30,6 @@
     "remark": "~4.1.0"
   },
   "devDependencies": {
-    "eslint-config-egg": "~1.0.3"
+    "eslint-config-egg": "~2.0.0"
   }
 }
