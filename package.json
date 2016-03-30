@@ -27,7 +27,7 @@
   "dependencies": {
     "commander": "~2.9.0",
     "eslint": "~2.5.1",
-    "remark": "~4.1.0"
+    "remark": "~4.2.0"
   },
   "devDependencies": {
     "eslint-config-egg": "~2.0.0"
